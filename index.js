@@ -18,20 +18,20 @@ const User = require("./models/user");
 const passport = require("passport");
 const LocalStrategy = require("passport-local");
 
-// const store = MongoStore.create({
-//   mongoUrl: process.env.MONGODB_ATLAS_URL,
-//   crypto: {
-//     secret: process.env.MY_SECRET,
-//   },
-//   touchAfter: 24 * 60 * 60,
-// });
+const store = MongoStore.create({
+  mongoUrl: process.env.MONGODB_ATLAS_URL,
+  crypto: {
+    secret: process.env.MY_SECRET,
+  },
+  touchAfter: 24 * 60 * 60,
+});
 
-// store.on("error", (err) => {
-// console.log("Error in Mongo Session store!", err);
-// });
+store.on("error", (err) => {
+console.log("Error in Mongo Session store!", err);
+});
 
 const sessionOption = {
-  // store,
+  store,
   secret: process.env.MY_SECRET,
   resave: false,
   saveUninitialized: true,
@@ -59,7 +59,8 @@ passport.deserializeUser(User.deserializeUser());
 
 // connecting to mongodb
 async function main() {
-  await mongoose.connect("mongodb://localhost:27017/project");
+  // mongodb://localhost:27017/project
+  await mongoose.connect(process.env.MONGODB_ATLAS_URL);
 }
 main()
   .then(() => {
