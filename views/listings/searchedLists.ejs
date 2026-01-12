@@ -1,0 +1,42 @@
+<% layout("/layout/boilerplate") %>
+<body>
+  <h3>Results shown for '<%=searchQuery %>'</h3>
+  <div
+    class="cards-container row row-cols-lg-4 row-cols-md-3 row-cols-sm-2 row-cols-xs-1"
+  >
+    <% if(list.length !== 0) { %> <% for (let data of list) { %>
+    <a href="/list/<%= data._id %>">
+      <div class="card">
+        <img
+          src="<%= data.Image.url %>"
+          class="card-img-top card-img"
+          alt="List image"
+        />
+        <div class="card-body">
+          <b> <p><%= data.title %></p></b>
+          <p>
+            <i class="fa-solid fa-earth-americas"></i>
+            <%=data.country %>
+          </p>
+          <p>
+            <i class="fa-solid fa-coins"></i>
+            <%=data.price.toLocaleString("en-IN") %>
+          </p>
+        </div>
+      </div>
+    </a>
+    <% } %> <% }else{%>
+    <div class="card" style="width: 18rem">
+      <img
+        src="https://www.hubspot.com/hubfs/no-results-found.png"
+        class="card-img-top"
+        alt="no results found image"
+      />
+      <div class="card-body">
+        <h5 class="card-title">Oops...</h5>
+        <p class="card-text">No results found for your search.</p>
+      </div>
+    </div>
+    <% } %>
+  </div>
+</body>

@@ -1,0 +1,51 @@
+<%- layout("/layout/boilerplate") %>
+<body>
+  <div
+    id="addingReview"
+    class="reviewUpdateMainDiv"
+    style="
+      padding: 30px 0;
+      margin-top: 70px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    "
+  >
+    <div>
+      <h3>Update your Feedback</h3>
+      <form
+        method="post"
+        action="/list/<%= id %>/review/<%= data._id %>/edit?__method=PATCH"
+      >
+        <div id="sliderDiv">
+          <fieldset class="starability-slot">
+            <input type="radio" id="first-rate1" name="reviewRating" value="1"
+            <% if (data.rating == 1) { %>checked<% } %> />
+            <label for="first-rate1" title="Terrible">1 star</label>
+            <input type="radio" id="first-rate2" name="reviewRating" value="2"
+            <% if (data.rating == 2) { %>checked<% } %> />
+            <label for="first-rate2" title="Not good">2 stars</label>
+            <input type="radio" id="first-rate3" name="reviewRating" value="3"
+            <% if (data.rating == 3) { %>checked<% } %> />
+            <label for="first-rate3" title="Average">3 stars</label>
+            <input type="radio" id="first-rate4" name="reviewRating" value="4"
+            <% if (data.rating == 4) { %>checked<% } %> />
+            <label for="first-rate4" title="Very good">4 stars</label>
+            <input type="radio" id="first-rate5" name="reviewRating" value="5"
+            <% if (data.rating == 5) { %>checked<% } %> />
+            <label for="first-rate5" title="Amazing">5 stars</label>
+          </fieldset>
+        </div>
+        <textarea
+          placeholder="Update your feedback"
+          name="reviewComment"
+          required
+        >
+<%= data.Comment %></textarea
+        >
+        <br />
+        <button class="btn btn-primary"><b>Update</b></button>
+      </form>
+    </div>
+  </div>
+</body>

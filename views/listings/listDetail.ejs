@@ -1,0 +1,53 @@
+<%- layout("/layout/boilerplate") %>
+<script>
+  let coordinates = <%-JSON.stringify(list.geometry.coordinates)%>;
+</script>
+<body>
+  <h2><%=list.title.toUpperCase() %></h2>
+  <div class="card detail-card-width" style="width: 50rem">
+    <img
+      src="<%= list.Image.url %>"
+      class="card-img-top detail-page-img"
+      alt="List image"
+    />
+    <div class="card-body">
+      <p class="description-p"><%=list.description %></p>
+      <p><i class="fa-solid fa-user"></i> <%=list.owner.username %></p>
+      <p>
+        <i class="fa-solid fa-coins"></i> <%=list.price.toLocaleString("en-IN")
+        %>
+      </p>
+      <p>
+        <i class="fa-solid fa-location-dot"></i> <%=capitalize(list.location) %>
+      </p>
+      <p>
+        <i class="fa-solid fa-earth-americas"></i> <%=capitalize(list.country)
+        %>
+      </p>
+    </div>
+    <% if (currentUser && currentUser._id.equals(list.owner._id)){ %>
+    <div class="detail-page-form-btns">
+      <form method="get" action="/list/<%= list._id %>/edit">
+        <button class="page-button" style="background-color: rgb(43, 40, 40)">
+          Edit
+        </button>
+      </form>
+      <form method="post" action="/list/<%= list._id %>/delete?__method=DELETE">
+        <button class="page-button" style="background-color: brown">
+          Delete
+        </button>
+      </form>
+    </div>
+    <% } %>
+  </div>
+  <hr />
+
+  <!-- review section -->
+  <%- include("../includes/reviews") %>
+  <!-- displaying map -->
+  <div>
+    <h5>Shelter location on Map</h5>
+    <div id="map"></div>
+  </div>
+  <script src="/js/map.js"></script>
+</body>

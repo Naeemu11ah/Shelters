@@ -1,0 +1,26 @@
+<% layout("/layout/boilerplate") %>
+<body>
+  <h2>Available Shelters to Book</h2>
+  <div
+    class="cards-container row row-cols-lg-4 row-cols-md-3 row-cols-sm-2 row-cols-xs-1"
+  >
+    <% for (let list of allListings) { %>
+    <a href="/list/<%= list._id %>">
+      <div class="card">
+        <img
+          src="<%= list.Image.url %>"
+          class="card-img-top card-img"
+          alt="List image"
+        />
+        <div class="card-body">
+          <b> <p><%= capitalize(list.title) %></p></b>
+          <p>
+            <i class="fa-solid fa-coins"></i> <%=
+            list.price.toLocaleString("en-IN") %> PKR
+          </p>
+        </div>
+      </div>
+    </a>
+    <% } %>
+  </div>
+</body>

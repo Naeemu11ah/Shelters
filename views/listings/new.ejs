@@ -1,0 +1,61 @@
+<%- layout("/layout/boilerplate") %>
+<body>
+  <h2>Add a New Shelter</h2>
+  <form
+    method="post"
+    action="/list/new"
+    class="needs-validation"
+    novalidate
+    enctype="multipart/form-data"
+  >
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Enter Title"
+      name="title"
+      minlength="2"
+      maxlength="80"
+      required
+    />
+    <textarea
+      class="form-control"
+      placeholder="Enter Description"
+      name="description"
+      minlength="2"
+      maxlength="200"
+      required
+    ></textarea>
+    <input
+      type="number"
+      class="form-control"
+      placeholder="Enter Price"
+      name="price"
+      min="0"
+      required
+    />
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Enter City name"
+      name="location"
+      minlength="2"
+      maxlength="60"
+      required
+    />
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Enter Country name"
+      name="country"
+      minlength="2"
+      maxlength="30"
+      required
+    />
+    <label class="form-label">
+      <b>Upload an image</b>
+      <input type="file" class="form-control" name="url" required />
+    </label>
+    <br />
+    <button class="btn btn-success">Add</button>
+  </form>
+</body>

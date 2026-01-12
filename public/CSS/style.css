@@ -1,0 +1,297 @@
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+}
+
+.container {
+  flex: 1;
+}
+
+nav {
+  margin-bottom: 10px;
+}
+
+/* footer */
+.fa-house {
+  color: #fe424d;
+  font-size: larger;
+}
+
+@media (min-width: 780px) {
+  footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 100px;
+    font-weight: 600;
+    font-size: 17px;
+    background-color: silver;
+    margin-top: 10px;
+  }
+
+  .footer-ul {
+    list-style-type: none;
+    display: flex;
+    gap: 30px;
+    margin: 0;
+  }
+
+  .links a {
+    text-decoration: none;
+  }
+
+  .social li {
+    font-size: 20px;
+  }
+
+  .links a:hover {
+    text-decoration: underline;
+  }
+}
+
+@media (max-width: 780px) {
+  footer {
+    display: flex;
+    align-items: center;
+    flex-direction: column-reverse;
+    background-color: silver;
+    padding: 10px 0;
+    margin-top: 10px;
+    gap: 5px;
+  }
+  .footer-ul {
+    list-style-type: none;
+    font-weight: bold;
+    padding: 0;
+    display: flex;
+    gap: 15px;
+    margin: 0;
+  }
+  .links a {
+    text-decoration: none;
+  }
+  .links a:hover {
+    text-decoration: underline;
+  }
+}
+
+/* cards */
+
+.cards-container {
+  margin-top: 20px !important;
+}
+
+.cards-container a {
+  text-decoration: none;
+}
+
+.card {
+  margin-bottom: 20px;
+  padding: 0;
+  border: none !important;
+}
+
+.card-body {
+  padding: 10px !important;
+}
+
+.card-body p {
+  margin: 0 !important;
+}
+
+.card-img {
+  width: 100% !important;
+  height: 200px !important;
+  padding: 0 !important;
+  border-radius: 10px !important;
+  opacity: 1;
+}
+.card-img:hover {
+  opacity: 0.8;
+}
+
+/* new and edit pages */
+
+input,
+textarea {
+  width: 300px !important;
+  border-radius: 5px;
+  padding: 5px 10px;
+  outline: none;
+  border: 1px solid black;
+  margin-bottom: 10px !important;
+  box-shadow: none !important;
+}
+
+textarea {
+  height: 120px;
+}
+
+.page-button {
+  padding: 5px 25px;
+  border-radius: 5px;
+  background-color: rgb(48, 171, 48);
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+/* detail page */
+
+.detail-page-form-btns button {
+  margin: 0;
+}
+
+.description-p {
+  background-color: gray;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 10px;
+}
+
+.detail-page-form-btns {
+  display: flex;
+  gap: 20px;
+}
+
+/* reviews and ratings */
+#addingReview textarea {
+  height: auto !important;
+  width: 300px !important;
+}
+
+#addingReview button {
+  width: 300px !important;
+  padding: 5px 0 !important ;
+  margin-bottom: 10px;
+  border-radius: 20px !important;
+}
+
+#sliderDiv {
+  margin: 10px 0 5px 0;
+}
+
+/* laptop screens */
+@media (min-width: 780px) {
+  .detail-page-img {
+    width: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    border-radius: 20px !important;
+    max-height: 320px;
+  }
+}
+
+/* for mobile screens */
+@media (max-width: 780px) {
+  .detail-page-img {
+    width: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    height: 180px;
+    border-radius: 15px !important;
+  }
+  .detail-card-width {
+    width: 300px !important;
+  }
+}
+
+@media (max-width: 400px) {
+  .reviewUpdateMainDiv {
+    border: none !important;
+  }
+}
+
+/* offcanvas width customization for mobile-like panel */
+@media (max-width: 780px) {
+  .offcanvas.offcanvas-end {
+    width: 75vw;
+    max-width: 75vw;
+  }
+}
+
+/* ensure offcanvas body scrolls if content is long */
+.offcanvas-body {
+  overflow-y: auto;
+}
+
+/* offcanvas css */
+.offcanvas_anchorTags {
+  border: none !important;
+  color: black !important;
+}
+
+/* offcanvas icon css */
+.offcanvasIcon {
+  color: #404040;
+  font-size: 18px;
+  margin-right: 5px;
+}
+
+/* signup page */
+#signupPageBody {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#signupPageH1 {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.signupPageButton {
+  color: white;
+  background-color: orangered !important;
+  width: 100% !important;
+  border-radius: 5px;
+  margin: 10px 0 15px 0;
+  padding: 7px 0;
+  border: none;
+}
+
+#showPassword {
+  width: auto !important;
+  cursor: pointer;
+}
+#showPasswordLabel {
+  cursor: pointer;
+  font-weight: 500;
+  opacity: 0.9;
+}
+
+/* flash alerts: limit width and allow wrapping on small screens */
+.flash-alert {
+  width: 90%;
+  max-width: 300px;
+  margin: 10px auto;
+  white-space: normal;
+  word-break: break-word;
+}
+.flash-alert p {
+  margin: 0;
+}
+
+/* map */
+#map {
+  height: 200px;
+  width: 100%;
+}
+
+/* searching */
+.search-input {
+  margin: 0 !important;
+  border: none !important;
+}
+.search-icon-mainDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  border: 1px solid rgb(0, 0, 0, 0.5);
+  border-radius: 20px;
+  padding: 0 10px;
+}

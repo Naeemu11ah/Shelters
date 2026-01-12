@@ -1,0 +1,48 @@
+<%- layout("/layout/boilerplate") %>
+
+<body>
+  <div id="signupPageBody">
+    <div>
+      <h2 id="signupPageH1">
+        Sign up for <span style="color: orangered">Shelter</span>
+      </h2>
+      <form method="post" action="/signup" class="needs-validation" novalidate>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Enter Name"
+          name="username"
+          required
+        />
+        <input
+          type="email"
+          class="form-control"
+          placeholder="Enter Email"
+          name="email"
+          required
+        />
+        <div>
+          <input
+            type="password"
+            class="form-control"
+            placeholder="Create a password"
+            name="password"
+            minlength="8"
+            required
+          />
+          <div class="invalid-feedback">
+            Password should be at least 8 characters!
+          </div>
+          <input type="checkbox" id="showPassword" />
+          <label for="showPassword" id="showPasswordLabel">Show password</label>
+        </div>
+        <button class="signupPageButton">Sign up</button>
+      </form>
+      <p>
+        Already have an account?
+        <a style="text-decoration: none" href="./login">Log in</a>
+      </p>
+    </div>
+  </div>
+  <script src="/js/showPassswordCheckbox.js"></script>
+</body>

@@ -1,0 +1,55 @@
+<nav class="navbar navbar-expand-sm bg-body-tertiary sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/list"><i class="fa-solid fa-house"></i></a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="offcanvas"
+      data-bs-target="#mobileMenu"
+      aria-controls="mobileMenu"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div
+      class="collapse navbar-collapse justify-content-between"
+      id="navbarNavAltMarkup"
+    >
+      <div class="navbar-nav">
+        <a class="nav-link" href="/list">Home</a>
+        <a class="nav-link" href="/list/new">Add New Shelter</a>
+      </div>
+      <div class="search-icon-mainDiv">
+        <div>
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+        <form role="search" method="post" action="/list/search">
+          <input
+            class="form-control me-2 search-input"
+            type="search"
+            placeholder="Search by Country"
+            aria-label="Search"
+            name="search"
+            required
+          />
+        </form>
+      </div>
+      <div class="navbar-nav">
+        <% if(currentUser){%>
+        <a class="nav-link" href="/logout">
+          <i
+            class="fa-solid fa-right-to-bracket offcanvasIcon"
+            style="color: red"
+          ></i
+          >Logout</a
+        >
+        <%}%> <% if(!currentUser){%>
+        <a class="nav-link" href="/signup"><b>Sign up</b></a>
+        <a class="nav-link" href="/login"><b>Log in</b></a>
+        <%}%>
+      </div>
+    </div>
+  </div>
+</nav>
+<!-- Offcanvas mobile menu (slides in from right, 75% width on small screens) -->
+<%- include("../includes/offcanvas") %>

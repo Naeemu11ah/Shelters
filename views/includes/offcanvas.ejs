@@ -1,0 +1,65 @@
+<div
+  class="offcanvas offcanvas-end"
+  tabindex="-1"
+  id="mobileMenu"
+  aria-labelledby="mobileMenuLabel"
+>
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="mobileMenuLabel">Shelters</h5>
+    <button
+      type="button"
+      class="btn-close text-reset"
+      data-bs-dismiss="offcanvas"
+      aria-label="Close"
+    ></button>
+  </div>
+  <div class="offcanvas-body">
+    <div class="list-group">
+      <div>
+        <form role="search" method="post" action="/list/search">
+          <input
+            style="width: 220px !important"
+            class="form-control me-2"
+            type="search"
+            placeholder="Search by Country"
+            aria-label="Search"
+            name="search"
+            required
+          />
+        </form>
+      </div>
+      <a
+        href="/list"
+        class="list-group-item list-group-item-action offcanvas_anchorTags"
+        ><i class="fa-solid fa-house offcanvasIcon"></i> Home</a
+      >
+      <a
+        href="/list/new"
+        class="list-group-item list-group-item-action offcanvas_anchorTags"
+        ><i class="fa-solid fa-plus offcanvasIcon"></i> Add New Shelter</a
+      >
+      <% if(currentUser){%>
+      <a
+        class="list-group-item list-group-item-action offcanvas_anchorTags"
+        href="/logout"
+        ><i
+          class="fa-solid fa-right-to-bracket offcanvasIcon"
+          style="color: red"
+        ></i>
+        Log out</a
+      >
+      <%}%> <% if(!currentUser){%>
+      <a
+        class="list-group-item list-group-item-action offcanvas_anchorTags"
+        href="/signup"
+        ><i class="fa-solid fa-user-plus offcanvasIcon"></i> sign up</a
+      >
+      <a
+        class="list-group-item list-group-item-action offcanvas_anchorTags"
+        href="/login"
+        ><i class="fa-solid fa-right-to-bracket offcanvasIcon"></i> Log in</a
+      >
+      <%}%>
+    </div>
+  </div>
+</div>

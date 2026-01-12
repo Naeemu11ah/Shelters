@@ -1,0 +1,90 @@
+<!-- creating Reviews -->
+<% if (currentUser){ %>
+<div id="addingReview">
+  <br />
+  <h3>Rate this Shelter</h3>
+  <form method="post" action="/list/<%= list._id %>/review">
+    <div id="sliderDiv">
+      <fieldset class="starability-slot">
+        <input
+          type="radio"
+          id="no-rate"
+          class="input-no-rate"
+          name="reviewRating"
+          value="0"
+          aria-label="No rating."
+        />
+        <input
+          type="radio"
+          id="first-rate1"
+          name="reviewRating"
+          value="1"
+          checked
+        />
+        <label for="first-rate1" title="Terrible">1 star</label>
+        <input type="radio" id="first-rate2" name="reviewRating" value="2" />
+        <label for="first-rate2" title="Not good">2 stars</label>
+        <input type="radio" id="first-rate3" name="reviewRating" value="3" />
+        <label for="first-rate3" title="Average">3 stars</label>
+        <input type="radio" id="first-rate4" name="reviewRating" value="4" />
+        <label for="first-rate4" title="Very good">4 stars</label>
+        <input type="radio" id="first-rate5" name="reviewRating" value="5" />
+        <label for="first-rate5" title="Amazing">5 stars</label>
+      </fieldset>
+    </div>
+    <textarea
+      placeholder="Describe your experience"
+      name="reviewComment"
+      minlength="2"
+      maxlength="100"
+      required
+    ></textarea>
+    <br />
+    <button class="btn btn-primary"><b>Post</b></button>
+  </form>
+</div>
+<hr />
+<% } %>
+<!-- showing Reviews -->
+<div>
+  <h3>Rating and Reviews</h3>
+  <% if(list.reviews.length){ %> <% for(review of list.reviews){ %>
+  <div
+    class="card"
+    style="width: 18rem; border: 1px solid rgba(0, 0, 0, 0.5) !important"
+  >
+    <div class="card-body">
+      <h5 class="card-title"><%= capitalize(review.author.username) %></h5>
+      <h6 class="card-subtitle mb-2 text-body-secondary">
+        <% for (let i = 0; i < (review.rating || 0); i++) { %>
+        <i class="fa-solid fa-star" style="color: orangered"></i>
+        <% } %>
+      </h6>
+      <p class="card-text"><%= review.Comment %></p>
+    </div>
+    <% if(currentUser && currentUser._id.equals(review.author._id)){ %>
+    <div class="detail-page-form-btns" style="margin: 0 5px 5px 5px">
+      <form
+        method="get"
+        action="/list/<%= list._id %>/review/<%= review._id %>/edit"
+      >
+        <button class="page-button" style="background-color: rgb(43, 40, 40)">
+          Edit feedback
+        </button>
+      </form>
+      <form
+        method="post"
+        action="/list/<%= list._id %>/review/<%= review._id %>/delete?__method=DELETE"
+      >
+        <button class="page-button" style="background-color: brown">
+          Delete
+        </button>
+      </form>
+    </div>
+    <% } %>
+  </div>
+  <% } %> <% } else{ %>
+  <p>No reviews yet!</p>
+  <% } %>
+</div>
+<hr />
