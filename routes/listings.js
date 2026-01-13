@@ -7,7 +7,6 @@ const controllersListings = require("../controllers/listings");
 const validateListing = require("../utils/validateListing");
 const multer = require("multer");
 const { storage } = require("../cloudConfig");
-const Listing = require("../models/listings");
 const upload = multer({ storage });
 
 // all lists
