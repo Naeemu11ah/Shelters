@@ -3,6 +3,7 @@ if (process.env.NODE_ENV != "production") {
 }
 
 const mongoose = require("mongoose");
+const PORT = process.env.PORT || 3000;
 const express = require("express");
 const app = express();
 const path = require("path");
@@ -27,7 +28,7 @@ const store = MongoStore.create({
 });
 
 store.on("error", (err) => {
-console.log("Error in Mongo Session store!", err);
+  console.log("Error in Mongo Session store!", err);
 });
 
 const sessionOption = {
@@ -96,4 +97,4 @@ app.use((req, res, next) => {
   res.status(404).render("error.ejs", { message });
 });
 
-app.listen(3000);
+app.listen(PORT);
