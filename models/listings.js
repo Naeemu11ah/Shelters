@@ -1,7 +1,6 @@
 const mongoose = require("mongoose");
 const review = require("./reviews");
 const Review = require("./reviews");
-const { string } = require("mathjs");
 
 const ListingsSchema = new mongoose.Schema({
   title: {
