@@ -13,6 +13,7 @@ const { MongoStore } = require("connect-mongo");
 const reviewRoute = require("./routes/review");
 const listingsRoute = require("./routes/listings");
 const userRoute = require("./routes/user");
+const pagesRoute = require("./routes/pages");
 const methodOverride = require("method-override");
 const flash = require("connect-flash");
 const User = require("./models/user");
@@ -85,6 +86,7 @@ app.use((req, res, next) => {
 app.use("/list", listingsRoute);
 app.use("/list/:id/review", reviewRoute);
 app.use("/", userRoute);
+app.use("/", pagesRoute);
 
 // Error handling middlewares
 app.use((err, req, res, next) => {
