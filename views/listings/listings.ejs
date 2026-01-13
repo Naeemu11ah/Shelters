@@ -1,10 +1,10 @@
 <% layout("/layout/boilerplate") %>
 <body>
-  <h2>Available Shelters to Book</h2>
+  <h2>Available Shelters</h2>
   <div
     class="cards-container row row-cols-lg-4 row-cols-md-3 row-cols-sm-2 row-cols-xs-1"
   >
-    <% for (let list of allListings) { %>
+    <% if(allListings.length !== 0 ) {%> <% for (let list of allListings) { %>
     <a href="/list/<%= list._id %>">
       <div class="card">
         <img
@@ -21,6 +21,18 @@
         </div>
       </div>
     </a>
+    <% } %> <% }else{%>
+    <div class="card" style="width: 18rem">
+      <img
+        src="https://cdn-icons-png.flaticon.com/512/9267/9267527.png"
+        class="card-img-top"
+        alt="no shelter found image"
+      />
+      <div class="card-body">
+        <h5 class="card-title">Oops...</h5>
+        <p class="card-text">No Shelter is listed yet!</p>
+      </div>
+    </div>
     <% } %>
   </div>
 </body>
