@@ -61,7 +61,7 @@ passport.deserializeUser(User.deserializeUser());
 
 // connecting to mongodb
 async function main() {
-  // mongodb://localhost:27017/project
+  // "mongodb://localhost:27017/project"
   await mongoose.connect(process.env.MONGODB_ATLAS_URL);
 }
 main()

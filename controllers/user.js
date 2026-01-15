@@ -6,19 +6,21 @@ module.exports.renderSignupForm = (req, res) => {
 
 module.exports.postingSignupForm = async (req, res, next) => {
   try {
-    let { username, email, password } = req.body;
-    let newUser = new User({
-      email: email,
-      username: username,
-    });
-    await User.register(newUser, password);
-    req.login(newUser, (err) => {
-      if (err) {
-        return next(err);
-      }
-      req.flash("success", "Welcome to shelters!");
-      res.redirect("/list");
-    });
+    // let { username, email, password } = req.body;
+    // let newUser = new User({
+    //   email: email,
+    //   username: username,
+    // });
+    // await User.register(newUser, password);
+    // req.login(newUser, (err) => {
+    //   if (err) {
+    //     return next(err);
+    //   }
+    //   req.flash("success", "Welcome to shelters!");
+    //   res.redirect("/list");
+    // });
+    req.flash("error", "Signup is currently disabled!");
+    res.redirect("/list");
   } catch {
     req.flash("error", "Name is already taken!");
     res.redirect("/signup");
