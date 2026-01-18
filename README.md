@@ -1,6 +1,6 @@
 # Shelter (Express Project)
 
-A small, secure, and practical shelter-listing web app built with Node.js and Express. It demonstrates user authentication, file uploads to Cloudinary, server-side validation, geocoding for locations, reviews, and ownership-based authorization.
+This is my first major project, a practical shelter-listing web app built with Node.js and Express. It demonstrates user authentication, file uploads to Cloudinary, client & server-side validation, geocoding for locations, reviews, ownership-based authorization and many more.
 
 **Features**
 
